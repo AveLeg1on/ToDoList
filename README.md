@@ -9,7 +9,7 @@
 - Открытие и редактирования файла с заметками
 - Очистка листа зазметок
 ## Скриншоты:
-![ToDoList_ltbqGfNkgx](https://github.com/AveLeg1on/ToDoList/assets/58211377/d13ed6fc-6ae8-42e5-8a5a-800560309978)
-![ToDoList_6vydw2QLpD](https://github.com/AveLeg1on/ToDoList/assets/58211377/a2930183-9bfe-4967-a09f-9c703e382bb8)
-![image](https://github.com/AveLeg1on/ToDoList/assets/58211377/3d46fc7e-2665-404b-b357-7d7441001d79)
-![image](https://github.com/AveLeg1on/ToDoList/assets/58211377/443a167e-be81-4bab-9b6c-2bdbdd09241b)
+![image](https://github.com/AveLeg1on/ToDoList/assets/58211377/73861e34-3ade-4dcd-8e91-a737e1c57567)
+![image](https://github.com/AveLeg1on/ToDoList/assets/58211377/10c9e3e4-8cb9-4a99-876b-0cdec406a342)
+![image](https://github.com/AveLeg1on/ToDoList/assets/58211377/aaf0c8e2-8771-473f-912a-fd1b24661ab9)
+![image](https://github.com/AveLeg1on/ToDoList/assets/58211377/1af24a61-9a17-42bf-bb94-c1272174a3b6)
