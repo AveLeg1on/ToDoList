@@ -1,0 +1,52 @@
+﻿<Window x:Class="ToDoList.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:ToDoList.MVVM.ViewModel"
+        xmlns:adorners="http://gu.se/Adorners"
+        mc:Ignorable="d"
+        Title="Список заметок" Height="400" Width="800" Icon="pack://application:,,,/Resources/Icon/app_window.ico" ResizeMode="NoResize">
+    <Window.DataContext>
+        <viewmodel:TodoViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="72.008"/>
+            <RowDefinition/>
+            <RowDefinition Height="162.017"/>
+        </Grid.RowDefinitions>
+        <Menu VerticalAlignment="Top" Style="{DynamicResource menuStyle}" Height="24">
+            <MenuItem Header="Файл" Style="{DynamicResource menuItemStyle}">
+                <MenuItem Header="Сохранить" Style="{DynamicResource menuItemStyle}" Command="{Binding SaveNote}"/>
+                <MenuItem Header="Загрузить" Style="{DynamicResource menuItemStyle}" Command="{Binding UploadNote}"/>
+                <MenuItem Header="Выход" Command="{Binding CloseProgram}" Style="{DynamicResource menuItemStyle}"/>
+            </MenuItem>
+            <MenuItem Header="Добавить заметку" Command="{Binding AddNote}" Height="24" Style="{DynamicResource menuItemStyle}"/>
+            <MenuItem Header="Очистка заметок" Command="{Binding ClearNote}"/>
+        </Menu>
+        <Border Margin="0,24,0,0" Height="49" VerticalAlignment="Top" Grid.RowSpan="2">
+            <Grid>
+                <TextBox x:Name="tbNote" adorners:Watermark.Text="Заголовок заметки" adorners:Watermark.VisibleWhen="EmptyAndNotKeyboardFocused" AcceptsReturn="True" Text="{Binding Header, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            </Grid>
+        </Border>
+        <Border Margin="0,1,0,0" Grid.Row="1">
+            <Grid>
+                <TextBox x:Name="tbHeaderNote" adorners:Watermark.Text="Текст заметки" adorners:Watermark.VisibleWhen="EmptyAndNotKeyboardFocused" AcceptsReturn="True" Text="{Binding Note, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="0,-2,0,0"/>
+            </Grid>
+        </Border>
+        <Border Height="161" VerticalAlignment="Top" Margin="0,1,0,0" Grid.Row="2">
+            <Grid>
+                <TextBox x:Name="tbTaskNotes" TextWrapping="Wrap" adorners:Watermark.Text="Список заметок" adorners:Watermark.VisibleWhen="Empty" AcceptsReturn="True" IsReadOnly="True" Text="{Binding Tasks, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="0,-1,0,0" HorizontalAlignment="Left" Width="565"/>
+                <GroupBox Header="Действия с заметками" Margin="565,0,0,0">
+                    <Grid>
+                        <TextBox HorizontalAlignment="Center" Margin="0,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding NoteNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        <Label Content="Введите номер заметки" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+                        <Button Content="Отметить как &#x0a; выполненную" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Width="116" Command="{Binding ToCompleted}"/>
+                        <Button Content="Удалить заметку" HorizontalAlignment="Center" Margin="0,99,0,0" VerticalAlignment="Top" Width="116" Command="{Binding ToDelete}"/>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
